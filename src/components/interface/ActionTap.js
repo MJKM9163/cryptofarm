@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const GroundSelect = styled.div`
@@ -6,8 +7,8 @@ const GroundSelect = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: -300px;
-  left: 10vw;
+  //top: -300px;
+  //left: 10vw;
   width: 250px;
   height: 400px;
   background-color: #80808090;
@@ -34,6 +35,7 @@ const GroundSelect = styled.div`
 `;
 
 const ActionTap = () => {
+  const tapCheck = useSelector((store) => store);
   return (
     <GroundSelect>
       <div className="status">
