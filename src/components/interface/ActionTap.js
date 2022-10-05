@@ -7,12 +7,13 @@ const GroundSelect = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //top: -300px;
-  //left: 10vw;
+  top: 20%;
+  left: 65%;
   width: 250px;
   height: 400px;
   background-color: #80808090;
   color: #e0e0e0;
+  z-index: 2;
 
   .select {
     display: flex;
@@ -35,8 +36,9 @@ const GroundSelect = styled.div`
 `;
 
 const ActionTap = () => {
-  const tapCheck = useSelector((store) => store);
-  return (
+  const tapCheck = useSelector((store) => store.onCheck);
+
+  return tapCheck ? (
     <GroundSelect>
       <div className="status">
         <div className="name">알록달록 새콤 수박</div>
@@ -55,7 +57,7 @@ const ActionTap = () => {
         <button className="delete">제거</button>
       </div>
     </GroundSelect>
-  );
+  ) : null;
 };
 
 export default ActionTap;
