@@ -5,8 +5,11 @@ import Ground from "./background/Ground";
 import { OrbitControls } from "@react-three/drei";
 import Player from "./player/Player";
 import ActionTap from "./components/interface/ActionTap";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+
   return (
     <>
       <ActionTap />
@@ -22,7 +25,7 @@ function App() {
         <pointLight position={[5, 5, 5]} />
         {/* <Html></Html> */}
         <Player />
-        <Ground />
+        <Ground dispatch={dispatch} />
         <Camera />
         <OrbitControls />
       </Canvas>

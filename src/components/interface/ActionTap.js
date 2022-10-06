@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { planting } from "../../store/reducers/groundSlice";
 
 const GroundSelect = styled.div`
   position: absolute;
@@ -36,24 +37,32 @@ const GroundSelect = styled.div`
 `;
 
 const ActionTap = () => {
-  const tapCheck = useSelector((store) => store.onCheck);
+  const dispatch = useDispatch();
+  const tapData = useSelector((store) => store.ground);
 
-  return tapCheck ? (
+  return tapData.check ? (
     <GroundSelect>
       <div className="status">
-        <div className="name">알록달록 새콤 수박</div>
+        <div className="name">{tapData.name}</div>
         <div className="quality">
-          등급 : <span>???</span>
+          등급 : <span>{tapData.quality}</span>
         </div>
 
         <div className="timeData">
-          <div>심은 날짜 : 22. 9. 22</div>
-          <div>예상 수확일 : 22. 10. 19</div>
+          <div>심은 날짜 : {tapData.timeData.plantedTime}</div>
+          <div>예상 수확일 : {tapData.timeData.harvestTime}</div>
         </div>
       </div>
 
       <div className="select">
-        <button className="harvesting">수확</button>
+        <button
+          className="harvesting"
+          onClick={() => {
+            dispatch(planting());
+          }}
+        >
+          심기
+        </button>
         <button className="delete">제거</button>
       </div>
     </GroundSelect>
