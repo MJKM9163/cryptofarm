@@ -27,6 +27,7 @@ const Ground = ({ dispatch }) => {
                 e.object.material.color = new Color(1, 1, 1);
               }}
               onClick={(e) => {
+                console.log(e);
                 dispatch(focusGround({ Y: indexY, X: indexX }));
               }}
             >
