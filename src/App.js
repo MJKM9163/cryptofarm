@@ -3,16 +3,16 @@ import { Canvas } from "@react-three/fiber";
 import Camera from "./setting/Camera";
 import Ground from "./background/Ground";
 import { OrbitControls } from "@react-three/drei";
-import Player from "./player/Player";
-import ActionTap from "./components/interface/ActionTap";
 import { useDispatch } from "react-redux";
+import Components from "./components/Index";
 
 function App() {
   const dispatch = useDispatch();
 
   return (
     <>
-      <ActionTap />
+      <Components />
+
       <Canvas
         shadows
         camera={{
@@ -24,10 +24,9 @@ function App() {
         <ambientLight />
         <pointLight position={[5, 5, 5]} />
         {/* <Html></Html> */}
-        <Player />
         <Ground dispatch={dispatch} />
         <Camera />
-        <OrbitControls />
+        <OrbitControls enablePan={false} />
       </Canvas>
     </>
   );
