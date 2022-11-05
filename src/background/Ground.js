@@ -11,6 +11,7 @@ const Ground = ({ dispatch }) => {
   );
 
   //textureStarField1.repeat.set(1, 1);
+  //textureStarField1.repeat.set(1, 1);
   return (
     <group position={[0, -1, 0]}>
       {arr.map((e, indexY) => (
